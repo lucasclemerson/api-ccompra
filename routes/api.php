@@ -21,7 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 */
 
+use App\Http\Controllers\HealthCheckController;
+use App\Http\Controllers\ProductController;
 
 
-
+//GET DEFAULT HEALTH CHECK
 Route::get('/health', HealthCheckController::class);
+
+
+//GET PRODUTOS
+Route::resource('products', ProductController::class);
