@@ -15,6 +15,7 @@ class CategoriaFactory extends Factory
     {
         return [
             'nome' => $this->faker->words(3, true),
+            'slogan' => $this->faker->words(3, true),
         ];
     }
 }

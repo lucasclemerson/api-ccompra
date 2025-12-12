@@ -31,16 +31,25 @@ class CategoriaController extends Controller
     {
          $validatedData = $request->validate([
             'nome' => 'required|string|max:255',
+            'slogan' => 'required|string|max:255',
         ]);
 
         // 2. Criação do novo produto no banco de dados
         $categoria = Categoria::create($validatedData);
 
         // 3. Retorna a resposta JSON (Status 201 Created é padrão para criação)
-        return response()->json([
-            'message' => 'Produto criado com sucesso!',
-            'categoria' => $categoria
-        ], 201);
+        
+        if (!$categoria) {
+            return response()->json([
+                'message' => 'Erro ao criar a categoria.'
+            ], 500);
+        }else{
+            return response()->json([
+                'message' => 'Categoria criada com sucesso!',
+                'categoria' => $categoria
+            ], 201);
+        }
+        
     }
 
     /**
@@ -66,6 +75,7 @@ class CategoriaController extends Controller
     {
         $request->validate([
             'nome' => 'sometimes|required|string|max:255',
+            'slogan' => 'sometimes|required|string|max:255',
         ]);
 
         $categoria = Categoria::findOrFail($id);
