@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 
 use Database\Seeders\CategoriaSeeder; // Importe o seeder de Categoria
 use Database\Seeders\ProductSeeder; // Importe o seeder de Produto
+use Database\Seeders\UserSeeder; // Importe o seeder de Produto
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,8 +20,9 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         $this->call([
-            CategoriaSeeder::class,
-            ProductSeeder::class,
+            //CategoriaSeeder::class,
+            //ProductSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
