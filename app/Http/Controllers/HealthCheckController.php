@@ -16,6 +16,11 @@ class HealthCheckController extends Controller
                 'status' => 'ok',
                 'database' => 'connected',
                 'app_status' => 'running',
+                'name_app' => 'CCompra API - Health Check',
+                'version' => '1.0.0',
+                'environment' => app()->environment(),
+                'timestamp' => now()->toDateTimeString(),
+                'by' => 'CEO - Clemerson Lucas de Oliveira'
             ], 200);
 
         } catch (\Exception $e) {
