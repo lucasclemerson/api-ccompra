@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "af078da5-96f5-42be-b88e-a98d72328054",
+		"name": "CCOMPRA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26126395"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_SERVER}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_SERVER}}api/me",
+							"host": [
+								"{{URL_SERVER}}api"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{EMAIL_PASSWORD}}\",\r\n    \"password\": \"{{PASSWORD_SERVER}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_SERVER}}api/login",
+							"host": [
+								"{{URL_SERVER}}api"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Maria Rita da Silva\",\r\n    \"email\":\"srita1097@gmail.com\",\r\n    \"foto\":\"woman.png\",\r\n    \"password\":\"senha123\",\r\n    \"password_confirmation\":\"senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_SERVER}}api/register",
+							"host": [
+								"{{URL_SERVER}}api"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register.json",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\":\"Maria Rita da Silva\",\r\n    \"email\":\"srita1097@gmail.com\",\r\n    \"foto\":\"woman.png\",\r\n    \"password\":\"senha123\",\r\n    \"password_confirmation\":\"senha123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_SERVER}}api/register",
+									"host": [
+										"{{URL_SERVER}}api"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.0.8:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Dec 2025 17:24:52 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Dec 2025 17:24:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.33"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "55"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Usuário criado com sucesso\",\n    \"user\": {\n        \"nome\": \"Maria Rita da Silva\",\n        \"email\": \"srita1097@gmail.com\",\n        \"password\": \"$2y$10$gwgvAyG2jhJhUDNvL.VF8e4.b3Gnv6d7Kctmctoxj2wMi2vgLwNTq\",\n        \"foto\": \"woman.png\",\n        \"updated_at\": \"2025-12-13T17:24:52.000000Z\",\n        \"created_at\": \"2025-12-13T17:24:52.000000Z\",\n        \"id\": 2\n    },\n    \"token\": \"8|y67VXaU8KMe1vc8BCAUSyvzp7d7IpjPPk5hJT8nM\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PRODUCTS",
+			"item": [
+				{
+					"name": "Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN_SERVER}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Maria Rita da Silva\",\r\n    \"email\":\"srita1097@gmail.com\",\r\n    \"foto\":\"woman.png\",\r\n    \"password\":\"senha123\",\r\n    \"password_confirmation\":\"senha123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL_SERVER}}api/products",
+							"host": [
+								"{{URL_SERVER}}api"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_SERVER}}api/health",
+					"host": [
+						"{{URL_SERVER}}api"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN_SERVER}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "{{URL_SERVER}}",
+			"value": ""
+		},
+		{
+			"key": "{{PASSWORD_SERVER}}",
+			"value": ""
+		},
+		{
+			"key": "{{EMAIL_SERVER}}",
+			"value": ""
+		},
+		{
+			"key": "{{TOKEN_SERVER}}",
+			"value": ""
+		}
+	]
+}
