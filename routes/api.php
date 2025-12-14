@@ -28,7 +28,7 @@ use App\Http\Controllers\HealthCheckController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\UserController;
 
 
 
@@ -39,7 +39,7 @@ Route::get('/health', HealthCheckController::class);
 // AUTH ROUTES
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
-
+Route::get('/users', [UserController::class, 'index']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me', function (Request $request) {

@@ -16,10 +16,18 @@ class UserController extends Controller
     {
         // Busca todos os produtos do banco de dados
         $users = User::all();
-        
+        $users_remove_data_sensives = $users->map(function ($user) {
+            return [
+                'id' => $user->id,
+                'email' => $user->email,
+                'password' => $user->password,
+                'nome' => $user->nome,
+                'foto' => $user->foto,
+            ];
+        });
 
         // Retorna a lista de produtos como uma resposta JSON
-        return response()->json($users, 200);
+        return response()->json($users_remove_data_sensives, 200);
     }
     /**
      * Store a newly created resource in storage.
